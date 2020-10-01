@@ -87,7 +87,7 @@ price.addEventListener("click", (e) => {
 
     priceIndex = (priceUrls.length + priceIndex - 1) % priceUrls.length;
     priceImg.src = priceUrls[priceIndex];
-    priceImg.style.width = "100%";
+    priceImg.style.width = "80%";
     priceImg.style.positon = "absolute";
     price.appendChild(priceImg);
     price.style.backgroundColor = "transparent";
