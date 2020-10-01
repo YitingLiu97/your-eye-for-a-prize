@@ -6,8 +6,8 @@
 // drag the pupil when it is within the eye range 
 // update to touch 
 
-let pupil = document.getElementById("pupil");
-let eyeBorder = document.getElementById("eyeBorder");
+// let pupil = document.getElementById("pupil");
+// let eyeBorder = document.getElementById("eyeBorder");
 
 // make eyeball moveable from https://www.kirupa.com/html5/drag.htm
 var dragItem = pupil;
@@ -34,12 +34,10 @@ function dragStart(e) {
   if (e.type === "touchstart") {
     initialX = e.touches[0].clientX - xOffset;
     initialY = e.touches[0].clientY - yOffset;
-    console.log(container.style.transform); //why doesn't it show? 
 
   } else {
     initialX = e.clientX - xOffset;
     initialY = e.clientY - yOffset;
-    console.log(container.style.transform); //why doesn't it show? 
   }
 
   if (e.target === dragItem) {
@@ -54,6 +52,7 @@ function dragEnd(e) {
   active = false;
 }
 
+// get bounding box to find the big circle - Element.getBoundingClientRect()
 function drag(e) {
   if (active) {
 
@@ -67,9 +66,33 @@ function drag(e) {
       currentY = e.clientY - initialY;
     }
 
+    let eye = document.getElementById("eye");
+
+    let info = eye.getBoundingClientRect();
+    let xMin = info.x-info.width;
+    let xMax = info.x;
+    let yMin = info.y-info.height;
+    let yMax = info.y;
+    // put the limits here 
+    console.log("border",eyeBorder.getBoundingClientRect());  
+    console.log("eye",eye.getBoundingClientRect());  
+    
+
+    if(currentX<=xMin){
+        currentX=xMin;
+      
+    }else if (currentX>=xMax){
+        currentX=xMax;
+
+    }
+    if(currentY<=yMin){
+        currentY=yMin;  console.log("less than left")
+    }else if (currentY>=yMax){
+       currentY=yMax;
+        } 
+
     xOffset = currentX;
     yOffset = currentY;
-
     setTranslate(currentX, currentY, dragItem);
   }
 }

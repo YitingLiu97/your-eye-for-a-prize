@@ -5,6 +5,12 @@
 
 // more effective way to is to circle through all options and tap to stop the options 
 
+// questions:
+/**** How do I avoid duplicates of functions? */
+/**** Navigation of the bottom DIV */
+/*** How to make one item draggable within boundary - can it be circle? */
+/***** how to see if button is clicked and do functions - are there any booleans? */ 
+// - create a variable - state - "pupil"
 
 /** change bg color */
 
@@ -40,14 +46,15 @@ let blue = document.createElement("button");
 blue.id = "blue";
 
 red.onclick = function () {
-  middle.style.backgroundImage ="url(../assets/bg1.png)";// should change the width of the image 
-  middle.style.width= "100%";
+  middle.style.backgroundColor="red"
+  // middle.style.backgroundImage ="url(../assets/bg1.png)";// should change the width of the image 
+  // middle.style.width= "100%";
 }
 blue.onclick = function () {
-  document.body.style.backgroundColor = "blue";
+  middle.style.backgroundColor = "blue";
 }
 black.onclick = function () {
-  document.body.style.backgroundColor = "black";
+  middle.style.backgroundColor = "black";
 }
 
 function addButtonforBG() {
@@ -66,12 +73,7 @@ bgBtn.addEventListener("touch", showBgSelections);
 bgBtn.addEventListener("click", addButtonforBG);
 
 //  how to figure out if the button is clicked? boolean 
-
-
 // create background buttons to change the background color 
-
-
-
 function showPriceSelections() {
 
   if (priceSelections.style.visibility === "visible") {
@@ -120,17 +122,23 @@ lowPrice.onclick = function () {
 
 /**** How do I avoid duplicates of functions? */
 
-// function showSelections(e) {
-//   if (e.style.visibility === "visible") {
-//     e.style.visibility = "hidden";
-//   } else {
-//     e.style.visibility = "visible";
-//   }
+function showSelections(e) {
+  if (e.style.visibility === "visible") {
+    e.style.visibility = "hidden";
+  } else {
+    e.style.visibility = "visible";
+  }
 
-// }
+}
 
 // why doesnt it work? 
-// priceBtn.addEventListener("click", showSelections(priceSelections));
+// priceBtn.addEventListener("click", showSelections(priceSelections));//does not wait for it to be called - so undefined 
+
+priceBtn.addEventListener("click", ()=>{
+  showSelections(priceSelections);
+});
+
+
 
 // show the selection when one button is clicked 
 // if it goes idle, disappera 
@@ -142,10 +150,16 @@ lowPrice.onclick = function () {
 
 function showEyeBorderSelections() {
 
-  if (eyeBorderSelections.style.visibility === "visible") {
-    eyeBorderSelections.style.visibility = "hidden";
+  // if (eyeBorderSelections.style.visibility === "visible") {
+  //   eyeBorderSelections.style.visibility = "hidden";
+  // } else {
+  //   eyeBorderSelections.style.visibility = "visible";
+  // }
+
+  if (eyeBorderSelections.style.display === "flex") {
+    eyeBorderSelections.style.display = "none";
   } else {
-    eyeBorderSelections.style.visibility = "visible";
+    eyeBorderSelections.style.display = "flex";
   }
 }
 
@@ -178,10 +192,10 @@ eyeBorderBtn.addEventListener("click", addButtonforEyeBorder);
 
 function showPupilSelections() {
 
-  if (pupilSelections.style.visibility === "visible") {
-    pupilSelections.style.visibility = "hidden";
+  if (pupilSelections.style.display==="flex") {
+    pupilSelections.style.display="none";
   } else {
-    pupilSelections.style.visibility = "visible";
+    pupilSelections.style.display = "flex";
   }
 }
 
