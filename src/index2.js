@@ -20,7 +20,8 @@ pupil.addEventListener("click", (e) => {
     pupilImg.src = pupilUrls[pupilIndex];
     pupilImg.style.width = "100%";
     pupil.appendChild(pupilImg);
-    pupil.style.backgroundColor = "transparent";
+    pupil.style.background = "transparent";
+    pupil.style.boxShadow="none";
 
 });
 
@@ -67,6 +68,8 @@ eyeBorder.addEventListener("click", (e) => {
     eyeBorderImg.style.width = "100%";
     eyeBorder.appendChild(eyeBorderImg);
     eyeBorder.style.backgroundColor = "transparent";
+    eyeBorder.style.background = "transparent";
+    eyeBorder.style.boxShadow="none";
 
 });
 
@@ -91,7 +94,8 @@ price.addEventListener("click", (e) => {
     priceImg.style.positon = "absolute";
     price.appendChild(priceImg);
     price.style.backgroundColor = "transparent";
-
+    price.style.background = "transparent";
+    price.style.boxShadow="none";
 });
 
 let bgIndex = 0;
@@ -116,7 +120,10 @@ function changeBg() {
     bgImg.style.width="100%";
     bgImg.style.positon = "absolute";
     bg.appendChild(bgImg);
-    price.style.backgroundColor = "transparent";
+    bg.style.backgroundColor = "transparent";
+    bg.style.background = "transparent";
+    bg.style.boxShadow="none";
+
 }
 
 

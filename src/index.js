@@ -9,7 +9,7 @@
 /**** How do I avoid duplicates of functions? */
 /**** Navigation of the bottom DIV */
 /*** How to make one item draggable within boundary - can it be circle? */
-/***** how to see if button is clicked and do functions - are there any booleans? */ 
+/***** how to see if button is clicked and do functions - are there any booleans? */
 // - create a variable - state - "pupil"
 
 /** change bg color */
@@ -46,7 +46,7 @@ let blue = document.createElement("button");
 blue.id = "blue";
 
 red.onclick = function () {
-  middle.style.backgroundColor="red"
+  middle.style.backgroundColor = "red"
   // middle.style.backgroundImage ="url(../assets/bg1.png)";// should change the width of the image 
   // middle.style.width= "100%";
 }
@@ -61,7 +61,7 @@ function addButtonforBG() {
   bgSelections.appendChild(red);
   bgSelections.appendChild(black);
   bgSelections.appendChild(blue);
-  red.style.backgroundColor ="red";
+  red.style.backgroundColor = "red";
   blue.style.backgroundColor = "blue";
   black.style.backgroundColor = "black";
 
@@ -134,7 +134,7 @@ function showSelections(e) {
 // why doesnt it work? 
 // priceBtn.addEventListener("click", showSelections(priceSelections));//does not wait for it to be called - so undefined 
 
-priceBtn.addEventListener("click", ()=>{
+priceBtn.addEventListener("click", () => {
   showSelections(priceSelections);
 });
 
@@ -192,8 +192,8 @@ eyeBorderBtn.addEventListener("click", addButtonforEyeBorder);
 
 function showPupilSelections() {
 
-  if (pupilSelections.style.display==="flex") {
-    pupilSelections.style.display="none";
+  if (pupilSelections.style.display === "flex") {
+    pupilSelections.style.display = "none";
   } else {
     pupilSelections.style.display = "flex";
   }
