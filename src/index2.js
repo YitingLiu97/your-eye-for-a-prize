@@ -113,7 +113,7 @@ let middle = document.getElementById("middle");
 // onclick reacts different than click - can not do the mobile touch with onclick 
 middle.addEventListener("click", changeBg);
 
-
+// how to also change the full background into the image 
 function changeBg() {
     bgIndex = (bgUrls.length + bgIndex - 1) % bgUrls.length;
     bgImg.src = bgUrls[bgIndex];
