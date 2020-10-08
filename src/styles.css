@@ -188,6 +188,7 @@ button:active {
 #pupil {
   height: 20vh;
   width: 20vh;
+
   z-index: 20;
   position: absolute;
 
@@ -212,8 +213,8 @@ button:active {
 
 
 #eyeBorder {
-  height: 50vh;
-  width: 50vh;
+  height: 45vh;
+  width: 45vh;
   z-index: 10;
   border-radius: 50%;
   background: #000000;
