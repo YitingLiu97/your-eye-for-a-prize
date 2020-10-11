@@ -1,6 +1,31 @@
 // tap the corresponding div to change the image 
+let state = ""; //to see if divs are clicked 
+let pupilState = false;
+let eyeBorderState = false;
+let bgState = false;
+let priceState = false;
 
-// bottom would be just instructions or maybe nothing? 
+let pupilPopup =  document.getElementById("pupilPopup");
+let eyeBorderPopup = document.getElementById("eyeBorderPopup");
+let pricePopup = document.getElementById("pricePopup");
+
+window.setTimeout(() => {
+    // console.log("disappear in 3");
+    if (pupilState == false) {
+        pupilPopup.style.display="flex";
+    }
+    if (eyeBorderState == false) {
+        eyeBorderPopup.style.display="flex";
+    }
+    if(bgState==false){
+        bgPopup.style.display="flex";
+    } if(priceState==false){
+        pricePopup.style.display="flex";
+    }
+  
+
+}, 5000);
+
 let pupilIndex = 0;
 let pupilUrls = [
     "assets/pupil1.png",
@@ -13,15 +38,19 @@ let pupilUrls = [
 
 let pupil = document.getElementById("pupil");
 let pupilImg = new Image();
+pupilImg.src = pupilUrls[pupilIndex];
+pupilImg.style.width = "100%";
+pupil.appendChild(pupilImg);
+pupil.style.background = "transparent";
+pupil.style.boxShadow = "none";
 
 pupil.addEventListener("click", (e) => {
+    pupilPopup.style.display="none";
+    pupilState = true;
     e.stopPropagation(); //stop listening to the click to its parents 
     pupilIndex = (pupilUrls.length + pupilIndex - 1) % pupilUrls.length;
     pupilImg.src = pupilUrls[pupilIndex];
-    pupilImg.style.width = "100%";
-    pupil.appendChild(pupilImg);
-    pupil.style.background = "transparent";
-    pupil.style.boxShadow="none";
+
 
 });
 
@@ -60,16 +89,22 @@ let eyeBorderUrls = [
 
 let eyeBorder = document.getElementById("eyeBorder");
 let eyeBorderImg = new Image();
+eyeBorderImg.src = eyeBorderUrls[eyeBorderIndex];
+
+eyeBorderImg.style.width = "100%";
+eyeBorder.appendChild(eyeBorderImg);
+eyeBorder.style.backgroundColor = "transparent";
+eyeBorder.style.background = "transparent";
+eyeBorder.style.boxShadow = "none";
 
 eyeBorder.addEventListener("click", (e) => {
+    eyeBorderPopup.style.display="none";
+
+    eyeBorderState = true;
     e.stopPropagation(); //stop listening to the click to its parents 
     eyeBorderIndex = (eyeBorderUrls.length + eyeBorderIndex - 1) % eyeBorderUrls.length;
     eyeBorderImg.src = eyeBorderUrls[eyeBorderIndex];
-    eyeBorderImg.style.width = "100%";
-    eyeBorder.appendChild(eyeBorderImg);
-    eyeBorder.style.backgroundColor = "transparent";
-    eyeBorder.style.background = "transparent";
-    eyeBorder.style.boxShadow="none";
+
 
 });
 
@@ -83,19 +118,24 @@ let priceUrls = [
 
 let price = document.getElementById("price");
 let priceImg = new Image();
-
+priceImg.src = priceUrls[priceIndex];
+priceImg.style.width = "80%";
+priceImg.style.positon = "absolute";
+price.appendChild(priceImg);
+price.style.backgroundColor = "transparent";
+price.style.background = "transparent";
+price.style.boxShadow = "none";
 // to move the positiion up with the text
 price.addEventListener("click", (e) => {
-    e.stopPropagation(); //stop listening to the click to its parents 
+    pricePopup.style.display="none";
 
+    priceState = true;
+
+    e.stopPropagation(); //stop listening to the click to its parents 
     priceIndex = (priceUrls.length + priceIndex - 1) % priceUrls.length;
     priceImg.src = priceUrls[priceIndex];
-    priceImg.style.width = "80%";
-    priceImg.style.positon = "absolute";
-    price.appendChild(priceImg);
-    price.style.backgroundColor = "transparent";
-    price.style.background = "transparent";
-    price.style.boxShadow="none";
+
+
 });
 
 let bgIndex = 0;
@@ -108,23 +148,25 @@ let bgUrls = [
 
 let bg = document.body;
 let bgImg = new Image();
+
 // how to not select the background when i click on other items? - should set boolean as well 
 let middle = document.getElementById("middle");
 // onclick reacts different than click - can not do the mobile touch with onclick 
 middle.addEventListener("click", changeBg);
+bgImg.style.width = "100%";
+bgImg.style.height = "100vh";
+bgImg.style.positon = "absolute";
+bgImg.src = bgUrls[bgIndex];
+bg.appendChild(bgImg);
 
 // how to also change the full background into the image 
 function changeBg() {
+    bgPopup.style.display="none";
+
+    bgState = true;
+
     bgIndex = (bgUrls.length + bgIndex - 1) % bgUrls.length;
     bgImg.src = bgUrls[bgIndex];
-    bgImg.style.width="100%";
-    bgImg.style.positon = "absolute";
-    bg.appendChild(bgImg);
-    bg.style.backgroundColor = "transparent";
-    bg.style.background = "transparent";
-    bg.style.boxShadow="none";
 
 }
-
-
 

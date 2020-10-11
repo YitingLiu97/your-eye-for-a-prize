@@ -13,18 +13,19 @@ body {
   height: -webkit-fill-available;
   height: fill-available;
 
-  width: 100%;
+  /* width: 100%; */
   position: relative;
-  display: flex;
+  /* display: flex; */
   /* touch-action: none; */
   /* user-select: none; */
   /* -webkit-user-select: none; */
   overflow: hidden;
   box-sizing: border-box;
 
-  font-family: sf-minced-meat;
-  background-color: blanchedalmond;
-  animation: changingBg 5s infinite alternate;
+  font-family: sf-minced-meat-shaded;
+  /* background-color: blanchedalmond; */
+  /* animation: changingBg 5s infinite alternate; */
+  
 }
 
 @keyframes changingBg{
@@ -38,13 +39,20 @@ body {
   }
 }
 p {
-  font-size: x-large;
+  font-size: 2.7vh;
   text-align: center;
 }
 
+
+
 @font-face {
-  font-family: sf-minced-meat;
+  font-family: sf-minced-meat-shaded;
   src: url(../assets/sf-minced-meat.shaded.ttf);
+}
+
+@font-face {
+  font-family: sf-minced-meat-extended;
+  src: url(../assets/sf-minced-meat.extended.ttf);
 }
 
 html {
@@ -63,11 +71,14 @@ html {
   position: absolute;
   display: flex;
   justify-content: space-around;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   align-items: center;
   /* border: 1pt red dotted; */
 
   /* width: 100%; */
+}
+#top>p{
+  margin-top: 2vh;
 }
 
 #top .container {
@@ -80,16 +91,22 @@ html {
 #bottom {
   position: absolute;
   width: 100%;
-  height: 5.5vh;
+  height: 7.5vh;
   bottom: 0;
   left: 0;
   right: 0;
   display: flex;
-  justify-content: space-evenly;
+  flex-flow: column nowrap;
+  justify-content: center;
   align-items: center;
   /* border: 1pt red dotted; */
 }
 
+#credit{
+  font-size: 1vh;
+  font-family: sf-minced-meat-extended;
+  
+}
 /* #bottom .container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -164,7 +181,7 @@ button:active {
 #middle {
   position: absolute;
   top: 5.5vh;
-  height: 85vh;
+  height: 87vh;
   width: 100%;
   margin: 0 auto;
   /* border: 1pt red dotted; */
@@ -174,6 +191,10 @@ button:active {
   align-items: center;
 }
 
+#bgPopup{
+  display: none;
+ bottom: 0;
+}
 /* how to make sure the mouse can interact with the pupil without going out of the eyeBorder? */
 
 #eye {
@@ -188,57 +209,52 @@ button:active {
 #pupil {
   height: 20vh;
   width: 20vh;
-
   z-index: 20;
   position: absolute;
-
-  border-radius: 50%;
-  background: #ff0000;
-  box-shadow: inset 31px 31px 68px #ad0000,
-    inset -31px -31px 68px #ff0000;
-
   animation: changingOpacity 1s infinite alternate;
 
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
 
+.popup{
+  display: none;
+  position: absolute;
+  /* border: 2pt dotted red; */
+  background-color: white;
+  border-radius: 20%;
+  padding:1% 3%;
+  font-family: sf-minced-meat-extended;
+
+}
+.popup>p{
+  font-size: 1vh;
 }
 
 #pupil:hover {
-  border-radius: 50%;
-  border-radius: 50%;
-  background: #dd6464;
-  box-shadow: inset 31px 31px 68px #964444,
-    inset -31px -31px 68px #ff8484;
+ cursor: pointer;
 }
-
-
 
 #eyeBorder {
   height: 45vh;
   width: 45vh;
   z-index: 10;
-  border-radius: 50%;
-  background: #000000;
-  box-shadow: inset 31px 31px 68px #000000,
-    inset -31px -31px 68px #000000;
-    animation: changingOpacity 1s infinite 2s alternate;
-
-
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 #eyeBorder:hover {
-  border-radius: 50%;
-  background: #514d4d;
-  box-shadow: inset 31px 31px 68px #373434,
-    inset -31px -31px 68px #6b6666;
+cursor: pointer;
 }
 
 #price {
 
   width: 60%;
-  border-radius: 80px;
-  background: #d59ad3;
-  box-shadow: inset 33px 33px 47px #c08bbe,
-    inset -33px -33px 47px #eaa9e8;
+
   border-radius: 80px;
   z-index: 5;
   display: flex;
@@ -247,14 +263,14 @@ button:active {
   align-content: baseline;
   height: 10vh;
   animation: changingOpacity 0.5s infinite 1.2s alternate;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #price:hover {
-  border-radius: 80px;
-  background: #e7d0e6;
-  box-shadow: inset 33px 33px 47px #d0bbcf,
-    inset -33px -33px 47px #fee5fd;
+cursor: pointer;
 }
 
 /* to indicate areas that are touchable */
